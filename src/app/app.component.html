@@ -1,26 +1,4 @@
 <div class="container mx-auto">
-  <div class="card bg-base-100 shadow-xl max-w-full">
-    <div class="card-body">
-      <label class="form-control mb-3">
-        <div class="label">
-          <span class="label-text">Account Name</span>
-        </div>
-        <input type="text" placeholder="Type here" class="input input-bordered w-full" placeholder="Please enter your name" />
-      </label>
-      <label class="form-control mb-3">
-        <div class="label">
-          <span class="label-text">Status</span>
-        </div>
-        <select class="select select-bordered w-full">
-          <option disabled selected>Pick one</option>
-          <option>Active</option>
-          <option>Inactive</option>
-        </select>
-      </label>
-
-      <div class="card-actions justify-end">
-        <button class="btn btn-primary">Buy Now</button>
-      </div>
-    </div>
-  </div>
+  <app-account-form (accountAdded)="onaccountAdded($event)"></app-account-form>
+  <app-accounts *ngFor="let account of accounts" [account]="account"></app-accounts>
 </div>
