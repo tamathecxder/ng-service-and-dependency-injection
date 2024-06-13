@@ -1,0 +1,24 @@
+<div class="card bg-base-100 shadow-xl max-w-full mb-10">
+  <div class="card-body">
+    <label class="form-control mb-3">
+      <div class="label">
+        <span class="label-text">Account Name</span>
+      </div>
+      <input type="text" placeholder="Type here" class="input input-bordered w-full" placeholder="Please enter your name" [(ngModel)]="name" />
+    </label>
+    <label class="form-control mb-3">
+      <div class="label">
+        <span class="label-text">Status</span>
+      </div>
+      <select class="select select-bordered w-full" [(ngModel)]="status">
+        <option disabled selected>Pick one</option>
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option>
+      </select>
+    </label>
+
+    <div class="card-actions justify-end">
+      <button type="button" class="btn btn-primary" (click)="onAddAccount()">Add Account</button>
+    </div>
+  </div>
+</div>
