@@ -2,8 +2,6 @@
   <div class="card-body">
     <h2 class="card-title">{{ account.name }}</h2>
     <p>This account is
-      <!-- {{ account.status }} -->
-
       <ng-container [ngSwitch]="account.status">
         <span *ngSwitchCase="'active'" class="badge badge-success text-white">Active</span>
         <span *ngSwitchCase="'inactive'" class="badge badge-warning">Inactive</span>
@@ -12,9 +10,9 @@
     </p>
 
     <div class="card-actions justify-end">
-      <button class="btn btn-success text-white" (click)="handleActive()">Set to 'Active'</button>
-      <button class="btn btn-warning" (click)="handleInactive()">Set to 'Inactive'</button>
-      <button class="btn btn-neutral" (click)="handleUnknown()">Set to 'Unknown'</button>
+      <button class="btn btn-success text-white" (click)="handleStatusChange('active')">Set to 'Active'</button>
+      <button class="btn btn-warning" (click)="handleStatusChange('inactive')">Set to 'Inactive'</button>
+      <button class="btn btn-neutral" (click)="handleStatusChange('unknown')">Set to 'Unknown'</button>
     </div>
   </div>
 </div>

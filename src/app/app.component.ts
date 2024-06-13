@@ -17,7 +17,19 @@ export class AppComponent {
 
   accounts: Account[] = [];
 
-  onaccountAdded(data: Account) {
+  onAccountAdded(data: Account) {
     this.accounts.push(data);
+  }
+
+  onStatusChanged(data: Account) {
+    const index = this.accounts.findIndex((account) => account.id === data.id);
+
+    if (index === -1) {
+      alert('Account not found');
+
+      return;
+    }
+
+    this.accounts[index] = data;
   }
 }

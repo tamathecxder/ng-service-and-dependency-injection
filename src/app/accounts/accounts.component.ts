@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Account } from '../shared/models/account.model';
 import { CommonModule } from '@angular/common';
 
@@ -12,16 +12,9 @@ import { CommonModule } from '@angular/common';
 
 export class AccountsComponent {
   @Input() account?: Account;
+  @Output() statusChanged = new EventEmitter<Account>();
 
-  handleActive() {
-    this.account!.status = 'active';
-  }
-
-  handleInactive() {
-    this.account!.status = 'inactive';
-  }
-
-  handleUnknown() {
-    this.account!.status = 'unknown';
+  handleStatusChange(status: string) {
+    this.statusChanged.emit(new Account(this.account!.id, this.account!.name, status));
   }
 }
