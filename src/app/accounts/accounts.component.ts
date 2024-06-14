@@ -15,7 +15,6 @@ import { AccountsService } from '../shared/services/accounts.service';
 
 export class AccountsComponent {
   @Input() account?: Account;
-  @Output() statusChanged = new EventEmitter<Account>();
 
   constructor(
     // first approach: using constructor

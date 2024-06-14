@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Account } from '../models/account.model';
 import { LoggingService } from './logging.service';
 
@@ -6,6 +6,8 @@ import { LoggingService } from './logging.service';
   providedIn: 'root'
 })
 export class AccountsService {
+  statusChanged = new EventEmitter<string>();
+
   accounts: Account[] = [
     new Account(1, 'Dummy Account', 'active'),
     new Account(2, 'Another Random Account', 'inactive')
@@ -29,19 +31,17 @@ export class AccountsService {
 
     const id = Math.floor(Math.random() * 1000);
     this.accounts.push(new Account(id, name, status));
-
     this.loggingService?.logAccountAdded();
   }
 
   setStatus(id: number, status: string) {
+    console.log('sdsds');
+
+
     const index = this.accounts.findIndex((account) => account.id === id);
 
-    if (index === -1) {
-      alert('Account not found');
-    }
-
     this.accounts[index].status = status;
-
     this.loggingService.logAccountStatusChange(status);
+    this.statusChanged.emit(status);
   }
 }
