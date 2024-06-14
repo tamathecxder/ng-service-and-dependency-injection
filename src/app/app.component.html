@@ -1,4 +1,31 @@
 <div class="container mx-auto max-w-5xl">
   <app-account-form></app-account-form>
   <app-accounts *ngFor="let account of accounts" [account]="account"></app-accounts>
+
+
+  <h2 class="text-4xl font-semibold mt-20 mb-3">Practice</h2>
+
+  <div class="flex flex-col w-full border-opacity-50">
+    <div class="grid h-auto card rounded-box place-items-start">
+      <h3 class="text-2xl font-normal"># Active Users</h3>
+
+      <app-active-users *ngFor="let user of activeUsers" [user]="user"></app-active-users>
+
+      <ng-container *ngIf="activeUsers.length === 0">
+        <app-empty-users></app-empty-users>
+      </ng-container>
+    </div>
+
+    <div class="divider">OR</div>
+
+    <div class="grid h-auto card rounded-box place-items-start">
+      <h3 class="text-2xl font-normal"># Inactive Users</h3>
+
+      <app-inactive-users *ngFor="let user of inactiveUsers" [user]="user"></app-inactive-users>
+
+      <ng-container *ngIf="inactiveUsers.length === 0">
+        <app-empty-users></app-empty-users>
+      </ng-container>
+    </div>
+  </div>
 </div>
