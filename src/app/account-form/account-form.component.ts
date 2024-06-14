@@ -10,7 +10,7 @@ import { AccountsService } from '../shared/services/accounts.service';
   imports: [FormsModule],
   templateUrl: './account-form.component.html',
   styleUrl: './account-form.component.scss',
-  providers: [LoggingService, AccountsService],
+  providers: [LoggingService],
 })
 export class AccountFormComponent {
   name: string = '';

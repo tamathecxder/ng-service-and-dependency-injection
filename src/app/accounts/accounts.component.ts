@@ -10,7 +10,7 @@ import { AccountsService } from '../shared/services/accounts.service';
   imports: [CommonModule],
   templateUrl: './accounts.component.html',
   styleUrl: './accounts.component.scss',
-  providers: [LoggingService, AccountsService],
+  providers: [LoggingService],
 })
 
 export class AccountsComponent {

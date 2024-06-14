@@ -27,6 +27,7 @@ export class AccountsService {
     }
 
     const id = Math.floor(Math.random() * 1000);
+    this.accounts.push(new Account(id, name, status));
   }
 
   setStatus(id: number, status: string) {
