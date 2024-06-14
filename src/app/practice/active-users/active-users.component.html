@@ -1,0 +1,6 @@
+<div class="card w-[500px] bg-base-100 shadow-xl mb-5" *ngIf="user">
+  <div class="card-body flex flex-row justify-between">
+    <h2 class="card-title">{{ user.name }}</h2>
+    <button class="btn btn-outline" (click)="handleInactive()">Switch to Inactive</button>
+  </div>
+</div>
