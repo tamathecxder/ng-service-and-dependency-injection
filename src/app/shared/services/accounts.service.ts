@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Account } from '../models/account.model';
+import { LoggingService } from './logging.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class AccountsService {
     new Account(2, 'Another Random Account', 'inactive')
   ]
 
-  constructor() { }
+  constructor(private loggingService: LoggingService) { }
 
   add(name: string, status: string) {
     const fields: any = {
@@ -28,6 +29,8 @@ export class AccountsService {
 
     const id = Math.floor(Math.random() * 1000);
     this.accounts.push(new Account(id, name, status));
+
+    this.loggingService?.logAccountAdded();
   }
 
   setStatus(id: number, status: string) {
@@ -38,5 +41,7 @@ export class AccountsService {
     }
 
     this.accounts[index].status = status;
+
+    this.loggingService.logAccountStatusChange(status);
   }
 }

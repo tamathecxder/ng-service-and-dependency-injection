@@ -19,12 +19,10 @@ export class AccountsComponent {
 
   constructor(
     // first approach: using constructor
-    private loggingService: LoggingService,
     private accountsService: AccountsService
   ) {}
 
   handleStatusChange(status: string) {
     this.accountsService.setStatus(this.account!.id, status);
-    this.loggingService.logAccountStatusChange(status);
   }
 }

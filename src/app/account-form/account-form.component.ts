@@ -15,17 +15,14 @@ import { AccountsService } from '../shared/services/accounts.service';
 export class AccountFormComponent {
   name: string = '';
   status: string = '';
-  private loggingService?: LoggingService;
   private accountService?: AccountsService;
 
   constructor() {
     // second approach: using inject method
-    this.loggingService = inject(LoggingService);
     this.accountService = inject(AccountsService);
   }
 
   onAddAccount() {
     this.accountService?.add(this.name, this.status);
-    this.loggingService?.logAccountAdded();
   }
 }
