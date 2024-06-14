@@ -1,4 +1,4 @@
 <div class="container mx-auto max-w-5xl">
-  <app-account-form (accountAdded)="onAccountAdded($event)"></app-account-form>
-  <app-accounts *ngFor="let account of accounts" [account]="account" (statusChanged)="onStatusChanged($event)"></app-accounts>
+  <app-account-form></app-account-form>
+  <app-accounts *ngFor="let account of accounts" [account]="account"></app-accounts>
 </div>
