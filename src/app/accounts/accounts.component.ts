@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Account } from '../shared/models/account.model';
 import { CommonModule } from '@angular/common';
 import { LoggingService } from '../shared/services/logging.service';
+import { AccountsService } from '../shared/services/accounts.service';
 
 @Component({
   selector: 'app-accounts',
@@ -9,7 +10,7 @@ import { LoggingService } from '../shared/services/logging.service';
   imports: [CommonModule],
   templateUrl: './accounts.component.html',
   styleUrl: './accounts.component.scss',
-  providers: [LoggingService],
+  providers: [LoggingService, AccountsService],
 })
 
 export class AccountsComponent {
@@ -18,12 +19,12 @@ export class AccountsComponent {
 
   constructor(
     // first approach: using constructor
-    private loggingService: LoggingService
+    private loggingService: LoggingService,
+    private accountsService: AccountsService
   ) {}
 
   handleStatusChange(status: string) {
-    this.statusChanged.emit(new Account(this.account!.id, this.account!.name, status));
-
+    this.accountsService.setStatus(this.account!.id, status);
     this.loggingService.logAccountStatusChange(status);
   }
 }

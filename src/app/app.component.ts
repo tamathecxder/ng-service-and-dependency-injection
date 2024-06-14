@@ -23,7 +23,7 @@ export class AppComponent {
     this.accounts = this.accountService.accounts;
   }
 
-  onAccountAdded(data: Account) {
+  onAccountAdded(data: any) {
     this.accounts.push(data);
   }
 

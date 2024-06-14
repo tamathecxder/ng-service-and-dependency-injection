@@ -28,4 +28,14 @@ export class AccountsService {
 
     const id = Math.floor(Math.random() * 1000);
   }
+
+  setStatus(id: number, status: string) {
+    const index = this.accounts.findIndex((account) => account.id === id);
+
+    if (index === -1) {
+      alert('Account not found');
+    }
+
+    this.accounts[index].status = status;
+  }
 }
